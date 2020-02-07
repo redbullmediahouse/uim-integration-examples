@@ -1,0 +1,8 @@
+{
+    "name": "redbull/uim-integration-example",
+    "description": "Example of integrations with UIM's API",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    }
+}

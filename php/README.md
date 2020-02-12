@@ -21,3 +21,11 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
  
 ### 4. Execute the script
 `php src/client-form-submission.php`
+
+## Variables
+
+The variables you would need to run this example against the `design` environment are:
+* `Application ID`
+* `API Key`
+
+Please request them from the UIM team. In case you want to move to `production`, please request a new set of `Application ID`, `API Key` and `Form alias` for it.

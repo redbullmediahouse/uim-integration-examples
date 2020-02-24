@@ -1,2 +1,5 @@
 .idea/**
 php/vendor/**
+java/.gradle
+java/.idea
+java/build

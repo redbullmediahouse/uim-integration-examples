@@ -12,9 +12,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 
 public class UimIntegrationUtils {
-    String appId;
-    String apiKey;
-    String environment;
+    private String appId;
+    private String apiKey;
+    private String environment;
 
     public UimIntegrationUtils(String appId, String apiKey, String environment) {
         this.appId = appId;
@@ -47,7 +47,7 @@ public class UimIntegrationUtils {
             return hash;
         }
         catch (Exception e){
-            System.out.println("Error");
+            System.err.println("Error");
         }
         return "";
     }

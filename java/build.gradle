@@ -25,9 +25,6 @@ jar {
     version =  '0.1.0'
 }
 
-sourceCompatibility = 1.11
-targetCompatibility = 1.11
-
 dependencies {
     // https://mvnrepository.com/artifact/org.json/json
     compile group: 'org.json', name: 'json', version: '20190722'

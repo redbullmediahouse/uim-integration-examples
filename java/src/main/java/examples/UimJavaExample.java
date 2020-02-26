@@ -36,7 +36,7 @@ public class UimJavaExample {
         try {
             utils.sendSignedRequest("POST", "/client/applications/" + app_id + "/form-submissions", "", body.toString());
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 }

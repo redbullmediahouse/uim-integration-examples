@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'com.bmuschko.docker-java-application'
+
+mainClassName = 'examples.UimJavaExample'
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:4.3.0'
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+jar {
+    baseName = 'uim-integration'
+    version =  '0.1.0'
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.json/json
+    compile group: 'org.json', name: 'json', version: '20190722'
+}
+// https://docs.oracle.com/en/solutions/monitor-applications-on-kubernetes/create-docker-image-java-application.html
+docker {
+    javaApplication {
+        baseImage = 'openjdk:11'
+        maintainer = 'Georgi Potzkov "georgi.potzkov@e-mundo.de"'
+        tag = 'uim-client-java-examples:latest'
+    }
+}

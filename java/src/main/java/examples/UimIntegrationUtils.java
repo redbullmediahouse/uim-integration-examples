@@ -1,7 +1,10 @@
 package examples;
 
+import org.json.JSONObject;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -58,6 +61,8 @@ public class UimIntegrationUtils {
             baseUrl = "https://uim-design.redbull.com/uim";
         } else if (environment.equals("production")) {
             baseUrl = "https://uim.redbull.com/uim";
+        } else if (environment.equals("local")) {
+            baseUrl = "http://localhost:8090";
         } else {
             throw new Error("Unknown environment " + environment);
         }
@@ -91,5 +96,21 @@ public class UimIntegrationUtils {
 
     private String currentDatetime() {
         return ZonedDateTime.now(ZoneId.of("GMT")).format(DateTimeFormatter.RFC_1123_DATE_TIME);
+    }
+
+    public JSONObject getRegistrationItems() throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(uimUrl("/api/application/registration-items")))
+                .header("Application-Id", appId)
+                .header("Accept", "application/vnd.rb.uim-v16+json")
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+
+        JSONObject registrationItems = new JSONObject(response.body());
+        return registrationItems;
     }
 }

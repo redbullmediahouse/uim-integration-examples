@@ -14,6 +14,10 @@ public class UimJavaExample {
             } else if (args[0].equals("create-user")) {
                 UimCreateUser uimCreateUser = new UimCreateUser(app_id, api_key, environment);
                 uimCreateUser.submit();
+            } else if (args[0].equals("custom-notification-verification")) {
+                UimCustomNotificationVerification uimCustomNotificationVerification = new UimCustomNotificationVerification();
+                uimCustomNotificationVerification.verify();
+
             } else {
                 throw new Error("Unknown command " + args[0]);
             }

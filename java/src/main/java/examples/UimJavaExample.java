@@ -17,6 +17,8 @@ public class UimJavaExample {
             } else {
                 throw new Error("Unknown command " + args[0]);
             }
+        } else {
+            throw new Error("Missing command please check out README.md!");
         }
     }
 }

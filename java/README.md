@@ -19,6 +19,7 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
 Possible `command` values are
 * `form-submission`
 * `create-user`
+* `custom-notification-verification`
 
 ## Variables
 

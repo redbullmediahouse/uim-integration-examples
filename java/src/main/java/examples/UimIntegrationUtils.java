@@ -4,7 +4,6 @@ import org.json.JSONObject;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -25,16 +24,16 @@ public class UimIntegrationUtils {
         this.environment = environment;
     }
 
-    public void sendSignedRequest(String method, String requestPath, String query, String body) throws Exception {
+    public String sendSignedRequest(String method, String requestPath, String query, String body) throws Exception {
         String acceptHeader = "application/vnd.rb.uim-v1+json";
         String date = currentDatetime();
-        String base64Body = Base64.getEncoder().encodeToString(body.getBytes());
+        String base64Body = body != null ? Base64.getEncoder().encodeToString(body.getBytes()): "";
         String signature = createSignature(method, requestPath, query, acceptHeader, base64Body, date);
         String url = uimUrl(requestPath);
         if(query != null && !query.isEmpty()) {
             url += "?" + query;
         }
-        callUim(method, body, signature, url, acceptHeader, date);
+        return callUim(method, body, signature, url, acceptHeader, date);
     }
 
     private String createSignature(String requestMethod, String requestPath, String query, String acceptHeader, String body, String date) {
@@ -76,22 +75,25 @@ public class UimIntegrationUtils {
         return hmacSignature;
     }
 
-    private void callUim(String method, String body, String signature, String url, String acceptHeader, String date) throws Exception {
+    private String callUim(String method, String body, String signature, String url, String acceptHeader, String date) throws Exception {
         String hmacSignature = createHmac(signature);
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
+        HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Content-Type", "application/json; charset=utf-8")
                 .header("Accept", acceptHeader)
                 .header("UIM-Date", date)
-                .header("Authorization", hmacSignature)
-                .POST(HttpRequest.BodyPublishers.ofString(body))
-                .build();
-
-        HttpResponse<String> response = client.send(request,
+                .header("Authorization", hmacSignature);
+        if ("POST".equals(method)) {
+            requestBuilder = requestBuilder.POST(HttpRequest.BodyPublishers.ofString(body));
+        } else if ("GET".equals(method)) {
+            requestBuilder = requestBuilder.GET();
+        }
+        HttpResponse<String> response = client.send(requestBuilder.build(),
                 HttpResponse.BodyHandlers.ofString());
 
         System.out.println(response.body());
+        return response.body();
     }
 
     private String currentDatetime() {

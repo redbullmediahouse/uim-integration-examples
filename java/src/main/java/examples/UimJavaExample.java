@@ -7,7 +7,7 @@ public class UimJavaExample {
         String form_alias = System.getenv("FORM_ALIAS");
         String environment = System.getenv("ENVIRONMENT");
 
-        if (args[0] != null) {
+        if (args.length == 1) {
             if (args[0].equals("form-submission")) {
                 UimFormSubmission uimFormSubmission = new UimFormSubmission(app_id, api_key, form_alias, environment);
                 uimFormSubmission.submit();
@@ -17,7 +17,9 @@ public class UimJavaExample {
             } else if (args[0].equals("custom-notification-verification")) {
                 UimCustomNotificationVerification uimCustomNotificationVerification = new UimCustomNotificationVerification();
                 uimCustomNotificationVerification.verify();
-
+            } else if (args[0].equals("find-user")) {
+                UimFindUser uimFindUser = new UimFindUser(app_id, api_key, environment);
+                uimFindUser.findUser();
             } else {
                 throw new Error("Unknown command " + args[0]);
             }

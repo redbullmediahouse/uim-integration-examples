@@ -24,6 +24,9 @@ public class UimCreateUser {
             JSONObject body = new JSONObject();
             JSONObject profileFields = new JSONObject();
             profileFields.put("email", "t.mueller@example.com");
+            profileFields.put("first_name", "Toro");
+            profileFields.put("last_name", "Mueller");
+            profileFields.put("country", "ES");
             body.put("profileFields", profileFields);
             body.put("applicationId", app_id);
             body.put("country", "UK");

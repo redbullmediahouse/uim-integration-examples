@@ -5,9 +5,25 @@
 ### 1. Client Form Submission
 Submits a Form containing consumer data using the Client API.
 
-File: `src/main/java/examples/UimJavaExample.java`
-
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-create
+
+### 2. Client Create User
+
+Registers a User using the Client API.
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-create-user
+
+### 3. Client Find a User
+
+Finds an existing User using the Client API.
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
+
+### 4. Verify the signature of a Custom Notification
+
+Verifies that the Custom Notification comes from UIM.
+
+Documentation: https://platformservices.redbull.com/docs/custom-notifications
 
 ## Setup the development environment
 ### 1. Build the container
@@ -19,6 +35,7 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
 Possible `command` values are
 * `form-submission`
 * `create-user`
+* `find-user`
 * `custom-notification-verification`
 
 ## Variables

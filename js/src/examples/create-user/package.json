@@ -1,0 +1,15 @@
+{
+  "name": "js_create_user",
+  "version": "1.0.0",
+  "description": "Create user in JS",
+  "author": "patrick.schuster@e-mundo.de",
+  "main": "src/create-user.js",
+  "scripts": {
+    "start": "node src/create-user.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "crypto-js": "^4.0.0",
+    "express": "^4.16.1"
+  }
+}

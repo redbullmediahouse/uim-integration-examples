@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Form submission in JS",
   "author": "patrick.schuster@e-mundo.de",
-  "main": "src/server.js",
+  "main": "src/form-submission.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/form-submission.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

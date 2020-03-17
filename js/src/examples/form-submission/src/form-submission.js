@@ -90,6 +90,8 @@ const jsonBody = {
 };
 console.log('Sending ... ');
 const output = send('POST', jsonBody,`/client/applications/${appId}/form-submissions`, "");
-output.then((data) => {
+output.then(data => {
     console.log('Received: ', data);
+}).catch(err => {
+    console.error('Something went wrong: ', err);
 });

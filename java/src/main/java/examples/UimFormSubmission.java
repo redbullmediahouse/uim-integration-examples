@@ -4,16 +4,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class UimFormSubmission {
-    String app_id;
-    String api_key;
+    String appId;
+    String appKey;
     String environment;
-    String form_alias;
+    String formAlias;
 
-    public UimFormSubmission(String app_id, String api_key, String form_alias, String environment) {
-        this.app_id = app_id;
-        this.api_key = api_key;
+    public UimFormSubmission(String appId, String appKey, String formAlias, String environment) {
+        this.appId = appId;
+        this.appKey = appKey;
         this.environment = environment;
-        this.form_alias = form_alias;
+        this.formAlias = formAlias;
     }
 
     public void submit() {
@@ -27,7 +27,7 @@ public class UimFormSubmission {
         fields.put("country", "ES");
         fields.put("zip_code", "12345");
         body.put("fields", fields);
-        body.put("formAlias", form_alias);
+        body.put("formAlias", formAlias);
         body.put("language", "en");
         body.put("country", "US");
         JSONArray policyTypes = new JSONArray("[\"privacy\"]");
@@ -36,12 +36,12 @@ public class UimFormSubmission {
         body.put("source", "US_MY-ACTIVATION_02-20");
 
         UimIntegrationUtils utils = new UimIntegrationUtils(
-                app_id,
-                api_key,
+                appId,
+                appKey,
                 environment
         );
         try {
-            utils.sendSignedRequest("POST", "/client/applications/" + app_id + "/form-submissions", "", body.toString());
+            utils.sendSignedRequest("POST", "/client/applications/" + appId + "/form-submissions", "", body.toString());
         } catch (Exception e) {
             System.err.println(e);
         }

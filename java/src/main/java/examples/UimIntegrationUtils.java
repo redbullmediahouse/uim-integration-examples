@@ -41,11 +41,11 @@ public class UimIntegrationUtils {
         String rawSignature = String.join("\n", params);
 
         try {
-            Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-            SecretKeySpec secret_key = new SecretKeySpec(apiKey.getBytes(), "HmacSHA256");
-            sha256_HMAC.init(secret_key);
+            Mac sha256HMAC = Mac.getInstance("HmacSHA256");
+            SecretKeySpec secretKey = new SecretKeySpec(apiKey.getBytes(), "HmacSHA256");
+            sha256HMAC.init(secretKey);
 
-            String hash = Base64.getEncoder().encodeToString(sha256_HMAC.doFinal(rawSignature.getBytes()));
+            String hash = Base64.getEncoder().encodeToString(sha256HMAC.doFinal(rawSignature.getBytes()));
             return hash;
         }
         catch (Exception e){

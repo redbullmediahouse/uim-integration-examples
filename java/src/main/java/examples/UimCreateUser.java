@@ -4,28 +4,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class UimCreateUser {
-    String app_id;
-    String api_key;
+    String appId;
+    String appKey;
     String environment;
 
-    public UimCreateUser(String app_id, String api_key, String environment) {
-        this.app_id = app_id;
-        this.api_key = api_key;
+    public UimCreateUser(String appId, String appKey, String environment) {
+        this.appId = appId;
+        this.appKey = appKey;
         this.environment = environment;
     }
 
     public void submit() {
         try {
             UimIntegrationUtils utils = new UimIntegrationUtils(
-                    app_id,
-                    api_key,
+                    appId,
+                    appKey,
                     environment
             );
             JSONObject body = new JSONObject();
             JSONObject profileFields = new JSONObject();
             profileFields.put("email", "t.mueller@example.com");
+            profileFields.put("first_name", "Toro");
+            profileFields.put("last_name", "Mueller");
+            profileFields.put("country", "ES");
             body.put("profileFields", profileFields);
-            body.put("applicationId", app_id);
+            body.put("applicationId", appId);
             body.put("country", "UK");
             body.put("targetUrl", "https://redbull.com");
             body.put("password", "somehash");
@@ -39,7 +42,7 @@ public class UimCreateUser {
             });
             body.put("policies", acceptedPolicies);
             body.put("source", "US_MY-ACTIVATION_02-20");
-            utils.sendSignedRequest("POST", "/client/applications/" + app_id + "/users", "", body.toString());
+            utils.sendSignedRequest("POST", "/client/applications/" + appId + "/users", "", body.toString());
         } catch (Exception e) {
             System.err.println(e);
         }

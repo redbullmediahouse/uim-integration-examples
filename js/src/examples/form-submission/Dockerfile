@@ -11,4 +11,4 @@ COPY src .
 
 EXPOSE 8080
 
-CMD [ "node", "server.js" ]
+CMD [ "node", "form-submission.js" ]

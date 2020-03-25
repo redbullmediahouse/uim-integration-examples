@@ -16,5 +16,5 @@ File: `create-user.js`
 ## Variables
 
 The variables you would need to run this example against the `design` environment are:
-* `Application_ID`
+* `APPLICATION_ID`
 * `API_KEY`

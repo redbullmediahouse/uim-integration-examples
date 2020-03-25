@@ -1,0 +1,15 @@
+{
+  "name": "js_find_user",
+  "version": "1.0.0",
+  "description": "Form submission in JS",
+  "author": "patrick.schuster@e-mundo.de",
+  "main": "src/find-user.js",
+  "scripts": {
+    "start": "node src/find-user.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "crypto-js": "^4.0.0",
+    "express": "^4.16.1"
+  }
+}

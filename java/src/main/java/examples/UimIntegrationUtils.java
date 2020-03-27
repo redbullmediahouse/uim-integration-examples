@@ -14,17 +14,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 
 public class UimIntegrationUtils {
-    private String appId;
+    private String clientIdentifier;
     private String apiKey;
     private String environment;
 
-    public UimIntegrationUtils(String appId, String apiKey, String environment) {
-        this.appId = appId;
+    public UimIntegrationUtils(String clientIdentifier, String apiKey, String environment) {
+        this.clientIdentifier = clientIdentifier;
         this.apiKey = apiKey;
         this.environment = environment;
     }
 
     public String sendSignedRequest(String method, String requestPath, String query, String body) throws Exception {
+        return sendSignedRequest(method, requestPath, query, body, false);
+    }
+
+    public String sendSignedRequest(String method, String requestPath, String query, String body, boolean useFormAuth) throws Exception {
         String acceptHeader = "application/vnd.rb.uim-v1+json";
         String date = currentDatetime();
         String base64Body = body != null ? Base64.getEncoder().encodeToString(body.getBytes()): "";
@@ -33,11 +37,11 @@ public class UimIntegrationUtils {
         if(query != null && !query.isEmpty()) {
             url += "?" + query;
         }
-        return callUim(method, body, signature, url, acceptHeader, date);
+        return callUim(method, body, signature, url, acceptHeader, date, useFormAuth);
     }
 
     private String createSignature(String requestMethod, String requestPath, String query, String acceptHeader, String body, String date) {
-        String[] params = {appId, requestMethod, requestPath, query, acceptHeader, body, date};
+        String[] params = {clientIdentifier, requestMethod, requestPath, query, acceptHeader, body, date};
         String rawSignature = String.join("\n", params);
 
         try {
@@ -68,15 +72,16 @@ public class UimIntegrationUtils {
         return baseUrl + requestPath;
     }
 
-    private String createHmac(String signature) {
-        String hmacSignature = "HMAC " + appId + ":" + signature;
-        System.out.println("AppId: " + appId + "\n");
+    private String createHmac(String signature, boolean useFormAuth) {
+        String prefix = useFormAuth ? "FORM:" : "";
+        String hmacSignature = "HMAC " + prefix + clientIdentifier + ":" + signature;
+        System.out.println("Client: " + clientIdentifier + "\n");
         System.out.println("Signature: " + hmacSignature + "\n");
         return hmacSignature;
     }
 
-    private String callUim(String method, String body, String signature, String url, String acceptHeader, String date) throws Exception {
-        String hmacSignature = createHmac(signature);
+    private String callUim(String method, String body, String signature, String url, String acceptHeader, String date, boolean useFormAuth) throws Exception {
+        String hmacSignature = createHmac(signature, useFormAuth);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -104,7 +109,7 @@ public class UimIntegrationUtils {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uimUrl("/api/application/registration-items")))
-                .header("Application-Id", appId)
+                .header("Application-Id", clientIdentifier)
                 .header("Accept", "application/vnd.rb.uim-v16+json")
                 .GET()
                 .build();

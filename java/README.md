@@ -25,6 +25,12 @@ Verifies that the Custom Notification comes from UIM.
 
 Documentation: https://platformservices.redbull.com/docs/custom-notifications
 
+### 5. Get a Form Submission with Form API key authentication
+
+Get a Form Submission using the Form API key for authentication.
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-get
+
 ## Setup the development environment
 ### 1. Build the container
 `./gradlew clean jar dockerBuildImage`

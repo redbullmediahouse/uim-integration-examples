@@ -20,6 +20,9 @@ public class UimJavaExample {
             } else if (args[0].equals("find-user")) {
                 UimFindUser uimFindUser = new UimFindUser(appId, appKey, environment);
                 uimFindUser.findUser();
+            } else if (args[0].equals("get-form-submission")) {
+                UimGetFormSubmission uimGetFormSubmission = new UimGetFormSubmission(formAlias, appKey, environment);
+                uimGetFormSubmission.getFormSubmission();
             } else {
                 throw new Error("Unknown command " + args[0]);
             }

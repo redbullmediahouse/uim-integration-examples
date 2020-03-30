@@ -1,0 +1,15 @@
+{
+  "name": "js_get_form_submission",
+  "version": "1.0.0",
+  "description": "Get a form submission in JS using a form API key for authentication",
+  "author": "martin.teufner@iteratec.com",
+  "main": "src/get-form-submission.js",
+  "scripts": {
+    "start": "node src/get-form-submission.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "crypto-js": "^4.0.0",
+    "express": "^4.16.1"
+  }
+}

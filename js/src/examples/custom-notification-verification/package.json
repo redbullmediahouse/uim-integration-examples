@@ -1,0 +1,11 @@
+{
+  "name": "js_custom-notification-verification",
+  "version": "1.0.0",
+  "description": "Verify the signature of a Custom Notification",
+  "author": "martin.teufner@iteratec.com",
+  "main": "src/custom-notification-verification.js",
+  "scripts": {
+    "start": "node src/custom-notification-verification.js"
+  },
+  "dependencies": {}
+}

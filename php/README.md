@@ -16,6 +16,13 @@ File: `client-create-user.php`
 
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-create-user
 
+### 3. Client Find a User
+Finds a user using the Client API.
+
+File: `client-find-user.php`
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
+
 ## Setup the development environment
 ### 1. Build the container
 `docker build -t uim-client-php-examples .`

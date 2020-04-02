@@ -6,7 +6,6 @@ require 'vendor/autoload.php';
 
 $appId = $_ENV["APPLICATION_ID"];
 $apiKey = $_ENV["API_KEY"];
-$formAlias = "integration_example_form";
 $environment = $_ENV['ENVIRONMENT'] ?? 'design';
 
 function uimUrl($requestPath)
@@ -86,25 +85,49 @@ function sendSignedRequest($method, $requestPath, $query, $body)
     return callUim($method, $body, $appId, $signature, $url, $acceptHeader, $date);
 }
 
-$jsonBody = '{
-    "fields": {
-        "first_name":"Jane",
-        "last_name":"Elliott",
-        "email":"youremail@yourDomain.com",
-        "gender":"FEMALE",
-        "city":"Barcelona",
-        "country": "ES",
-        "zip_code":"12345"},
-    "formAlias":"' . $formAlias . '",
-    "language":"en",
-    "country":"US",
-    "policyTypes":["privacy"],
-    "newsletterAccepted":true,
-    "source":"US_MY-ACTIVATION_02-20"}';
+function getRegistrationItems() {
+    global $appId;
+    $client = new GuzzleHttp\Client();
+    $response = $client->request('GET', uimUrl('/api/application/registration-items'), ['headers' => [
+        'Accept' => 'application/vnd.rb.uim-v16+json',
+        'Application-Id' => $appId]]);
+    return $response->getBody()->getContents();
+};
+
+function assembleRegistrationData(): string {
+    global $appId;
+    $registrationItems = json_decode(getRegistrationItems(), true);
+
+    $policies = [];
+    foreach ($registrationItems['policies'] as $policy) {
+        $policies[$policy['id']] = true;
+    }
+
+    return '{
+        "applicationId": "' . $appId . '",
+        "profileFields": {
+        "email": "example@example.com",
+            "first_name": "Test",
+            "title": "MR",
+            "zip_code": "5020",
+            "country": "AT"
+        },
+        "targetUrl": "https://redbull.com",
+        "password": "Testtest1.",
+        "language": "en",
+        "country": "ZZ",
+        "policies": ' . json_encode($policies) . ',
+        "newsletters": [],
+        "source": "US_MY-ACTIVATION_02-20"}';
+}
+
+echo "Assembling registration data...";
+
+$jsonBody = assembleRegistrationData();
 
 echo "Sending...";
 
-$output = sendSignedRequest("POST", "/client/applications/" . $appId . "/form-submissions", "", $jsonBody);
+$output = sendSignedRequest("POST", "/client/applications/" . $appId . "/users", "", $jsonBody);
 
 echo "Received: " . $output . "\n";
 

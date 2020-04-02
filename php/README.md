@@ -9,6 +9,13 @@ File: `client-form-submission.php`
 
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-create
 
+### 2. Client Create a User
+Submits registration data to create a user using the Client API.
+
+File: `client-create-user.php`
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-create-user
+
 ## Setup the development environment
 ### 1. Build the container
 `docker build -t uim-client-php-examples .`
@@ -20,7 +27,7 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
 `composer install`
  
 ### 4. Execute the script
-`php src/client-form-submission.php`
+`php src/<script-name>.php`
 
 ## Variables
 

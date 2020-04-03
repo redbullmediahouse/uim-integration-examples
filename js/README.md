@@ -17,3 +17,7 @@ See [separate readme](../js/src/examples/find-user/README.md)
 ## 4. Get Form Submission using a form API key for authentication
 
 See [separate readme](../js/src/examples/get-form-submission/README.md)
+
+## 5. Verify the signature of a Custom Notification
+
+See [separate readme](../js/src/examples/custom-notification-verification/README.md)

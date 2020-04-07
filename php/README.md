@@ -30,6 +30,13 @@ File: `client-get-form-submission.php`
 
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-get
 
+### 5. Custom Notification Verification
+Verify the signature of a Custom Notification.
+
+File: `client-custom-notification-verification.php`
+
+Documentation: https://platformservices.redbull.com/docs/custom-notifications
+
 ## Setup the development environment
 ### 1. Build the container
 `docker build -t uim-client-php-examples .`

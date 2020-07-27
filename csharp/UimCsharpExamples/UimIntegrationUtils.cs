@@ -74,6 +74,9 @@ namespace Utils {
             if ("GET".Equals(method)) {
                 response = webClient.DownloadString(url);
             }
+            else if ("POST".Equals(method)) {
+                response = webClient.UploadString(url, body);
+            }
             return response;
         }
 

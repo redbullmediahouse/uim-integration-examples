@@ -17,6 +17,11 @@ class UimCsharpExamples
             var formSubmission = new FormSubmission();
             formSubmission.submitForm(formAlias, appId, apiKey, environment);
         }
+        else if (example.Equals("create-user"))
+        {
+            var createUser = new CreateUser();
+            createUser.createUser(appId, apiKey, environment);
+        }
         else if (example.Equals("find-user"))
         {
             var findUser = new FindUser();

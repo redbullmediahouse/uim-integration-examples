@@ -8,6 +8,11 @@ Submits a Form containing consumer data using the Client API.
 
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-create
 
+## 2. Create a User
+Submits registration data to create a user using the Client API.
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-create-user
+
 ## 3. Find a user
 
 Finds a user using the Client API.
@@ -35,6 +40,7 @@ After a successful build, you can create the container and run the dockerized co
 
 You can run the following examples:
 * `form-submission`
+* `create-user`
 * `find-user`
 
 The variables you would need to run these examples against the `design` environment are:

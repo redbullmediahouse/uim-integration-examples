@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Net;
 using Utils;
 
 namespace UimExamples {
@@ -32,8 +34,12 @@ namespace UimExamples {
             try {
                 string response = utils.sendSignedRequest("POST", "/client/applications/" + appId + "/form-submissions", null, submission);
                 Console.WriteLine(response);
-            } catch (Exception e) {
-                Console.WriteLine("An error occurred: " + e);
+            } catch (WebException e) {
+                using (StreamReader r = new StreamReader(e.Response.GetResponseStream()))
+                {
+                    string response = r.ReadToEnd();
+                    Console.WriteLine(response);
+                }
             }
         }
     }

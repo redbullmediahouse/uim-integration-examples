@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using Utils;
 
 namespace UimExamples {
@@ -10,8 +12,12 @@ namespace UimExamples {
                 string findQueryParameters = "siloUserId=" + siloUserId + "&field=email&field=first_name&field=last_name&field=country";
                 string user = utils.sendSignedRequest("GET", "/client/applications/" + appId + "/users", findQueryParameters, null);
                 Console.WriteLine("user = " + user);
-            } catch (Exception e) {
-                Console.WriteLine("An error occurred: " + e);
+            } catch (WebException e) {
+                using (StreamReader r = new StreamReader(e.Response.GetResponseStream()))
+                {
+                    string response = r.ReadToEnd();
+                    Console.WriteLine(response);
+                }
             }
         }
     }

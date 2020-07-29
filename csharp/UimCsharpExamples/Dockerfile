@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
-COPY bin/Release/netcoreapp3.1/publish/ App/
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+COPY * /App/
+RUN cd /App && dotnet publish -c Release
 WORKDIR /App
-ENTRYPOINT ["dotnet", "UimCsharpExamples.dll"]
+ENTRYPOINT ["dotnet", "bin/Release/netcoreapp3.1/UimCsharpExamples.dll"]

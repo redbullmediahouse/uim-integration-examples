@@ -22,11 +22,6 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
 ## Build the docker container
 
 Inside the directory (corresponding to the example you want to try) execute the following:
-`dotnet publish -c Release`
-
-This will publish the C# code and prepare it for the dockerization.
-
-Next, execute:
 
 `docker build -t <DOCKER_IMAGE_NAME> -f Dockerfile .`
 

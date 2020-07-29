@@ -7,6 +7,7 @@ class UimCsharpExamples
     {
         string example = Environment.GetEnvironmentVariable("EXAMPLE");
         string siloUserId = Environment.GetEnvironmentVariable("SILO_USER_ID");
+        string formSubmissionId = Environment.GetEnvironmentVariable("FORM_SUBMISSION_ID");
         string appId = Environment.GetEnvironmentVariable("APP_ID");
         string apiKey = Environment.GetEnvironmentVariable("API_KEY");
         string formAlias = Environment.GetEnvironmentVariable("FORM_ALIAS");
@@ -26,6 +27,11 @@ class UimCsharpExamples
         {
             var findUser = new FindUser();
             findUser.findUser(siloUserId, appId, apiKey, environment);
+        }
+        else if (example.Equals("get-form-submission"))
+        {
+            var getFormSubmission = new GetFormSubmission();
+            getFormSubmission.getFormSubmission(formSubmissionId, formAlias, apiKey, environment);
         }
     }
 }

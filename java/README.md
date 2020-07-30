@@ -43,6 +43,7 @@ Possible `command` values are
 * `create-user`
 * `find-user`
 * `custom-notification-verification`
+* `get-form-submission`
 
 ## Variables
 

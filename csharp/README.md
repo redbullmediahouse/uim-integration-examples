@@ -19,6 +19,12 @@ Finds a user using the Client API.
 
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
 
+## 4. Get a Form Submission with Form API key authentication
+
+Get a Form Submission using the Form API key for authentication.
+
+REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-get
+
 ## Build the docker container
 
 Inside the directory (corresponding to the example you want to try) execute the following:
@@ -42,9 +48,11 @@ You can run the following examples:
 * `form-submission`
 * `create-user`
 * `find-user`
+* `get-form-submission`
 
 The variables you would need to run these examples against the `design` environment are:
 * `SILO_USER_ID`
+* `FORM_SUBMISSION_ID`
 * `APPLICATION_ID`
 * `API_KEY`
 * `FORM_ALIAS`

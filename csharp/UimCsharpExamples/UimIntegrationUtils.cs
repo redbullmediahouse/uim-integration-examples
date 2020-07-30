@@ -8,9 +8,9 @@ namespace Utils
     class UimIntegrationUtils
     {
 
-        public UimIntegrationUtils(string appId, string apiKey, string environment)
+        public UimIntegrationUtils(string clientIdentifier, string apiKey, string environment)
         {
-            ClientIdentifier = appId;
+            ClientIdentifier = clientIdentifier;
             ApiKey = apiKey;
             Environment = environment;
         }
@@ -84,7 +84,8 @@ namespace Utils
             webClient.Headers.Add("Accept", acceptHeader);
             webClient.Headers.Add("Content-Type", "application/json; charset=utf-8");
             webClient.Headers.Add("UIM-Date", date);
-            webClient.Headers.Add("Authorization", "HMAC " + ClientIdentifier + ":" + signature);
+            string prefix =  useFormAuth ? "FORM:" : "";
+            webClient.Headers.Add("Authorization", "HMAC " + prefix + ClientIdentifier + ":" + signature);
             string response = "empty";
             if ("GET".Equals(method))
             {

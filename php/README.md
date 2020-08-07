@@ -50,6 +50,13 @@ Documentation: https://platformservices.redbull.com/docs/custom-notifications
 ### 4. Execute the script
 `php src/<script-name>.php`
 
+Possible `script-name` values are
+* `client-form-submission`
+* `client-create-user`
+* `client-find-user`
+* `client-custom-notification-verification`
+* `client-get-form-submission`
+
 ## Variables
 
 The variables you would need to run this example against the `design` environment are:

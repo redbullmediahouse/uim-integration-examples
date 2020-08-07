@@ -43,13 +43,14 @@ You can run the following examples:
 * `form-submission`
 * `create-user`
 * `find-user`
+* `custom-notification-verification`
 * `get-form-submission`
 
 The variables you would need to run these examples against the `design` environment are:
-* `SILO_USER_ID`
-* `FORM_SUBMISSION_ID`
-* `APPLICATION_ID`
-* `API_KEY`
-* `FORM_ALIAS`
+* `SILO_USER_ID` for `find-user`
+* `FORM_SUBMISSION_ID` for `get-form-submission`
+* `APPLICATION_ID` for `form-submission`, `create-user`, `find-user`
+* `API_KEY` for `form-submission`, `create-user`, `find-user`
+* `FORM_ALIAS` for `form-submission`
 * `ENVIRONMENT` (this can either be `local`, `design` or `production`)
 * `DOCKER_IMAGE_NAME` (this container name you chose)

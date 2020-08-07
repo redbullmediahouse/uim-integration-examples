@@ -13,7 +13,12 @@ class UimCsharpExamples
         string formAlias = Environment.GetEnvironmentVariable("FORM_ALIAS");
         string environment = Environment.GetEnvironmentVariable("ENVIRONMENT");
 
-        if (example.Equals("form-submission"))
+        if (example == null) {
+            Console.WriteLine("No Environment Variable or parameter EXAMPLE");
+            Console.WriteLine("Add -e 'EXAMPLE=<EXAMPLE_YOU_WANT_TO_RUN>'");
+            Environment.Exit(-1);
+        }
+        else if (example.Equals("form-submission"))
         {
             var formSubmission = new FormSubmission();
             formSubmission.submitForm(formAlias, appId, apiKey, environment);
@@ -22,6 +27,11 @@ class UimCsharpExamples
         {
             var createUser = new CreateUser();
             createUser.createUser(appId, apiKey, environment);
+        }
+        else if (example.Equals("custom-notification-verification"))
+        {
+            var uimCustomNotificationVerification = new UimCustomNotificationVerification();
+            uimCustomNotificationVerification.verify();
         }
         else if (example.Equals("find-user"))
         {

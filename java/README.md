@@ -36,7 +36,7 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
 `./gradlew clean jar dockerBuildImage`
  
 ### 2. Run the container
-`docker run -e APP_ID=<appId> -e API_KEY=<apiKey> -e FORM_ALIAS=<formAlias> -e ENVIRONMENT=design uim-client-java-examples:latest <command>`
+`docker run -e "APP_ID=<appId>" -e "API_KEY=<apiKey>" -e "FORM_ALIAS=<formAlias>" -e "ENVIRONMENT=design" uim-client-java-examples:latest <command>`
 
 Possible `command` values are
 * `form-submission`

@@ -1,20 +1,18 @@
 const CryptoJS = require("crypto-js");
 const axios = require('axios').default;
 
-const appId = process.env.APPLICATION_ID;
 const apiKey = process.env.API_KEY;
-const formAlias = 'integration_example_form';
+const formAlias = 'rb_timelaps_uk_2020';
 const environment = process.env.ENVIRONMENT || 'design';
 
-function createHmacSignature(appId, signature) {
-    const hmacSignature = `HMAC ${appId}:${signature}`;
-    console.log(`AppId: ${appId}`);
+function createHmacSignature(formAlias, signature) {
+    const hmacSignature = `HMAC FORM:${formAlias}:${signature}`;
     console.log(`HMAC signature: ${hmacSignature}`);
     return hmacSignature;
 }
 
-async function sendQuery(method, body, appId, signature, url, acceptHeader, date) {
-    const hmacSignature = createHmacSignature(appId, signature);
+async function sendQuery(method, body, formAlias, signature, url, acceptHeader, date) {
+    const hmacSignature = createHmacSignature(formAlias, signature);
     return new Promise((resolve, reject) => {
         axios({
             method,
@@ -48,7 +46,7 @@ function uimUrl(requestPath) {
 }
 
 function createSignature(requestMethod, requestPath, query, acceptHeader, body, date) {
-    const params = [appId, requestMethod, requestPath, query, acceptHeader, body, date];
+    const params = [formAlias, requestMethod, requestPath, query, acceptHeader, body, date];
     const rawSignature = params.join('\n');
     const hash = CryptoJS.HmacSHA256(rawSignature, apiKey);
     return CryptoJS.enc.Base64.stringify(hash);
@@ -68,14 +66,14 @@ async function send(method, body, requestPath, query) {
     if (query !== '') {
         url = url.concat('?', query);
     }
-    return await sendQuery(method, body, appId, signature, url, acceptHeader, date);
+    return await sendQuery(method, body, formAlias, signature, url, acceptHeader, date);
 }
 
 const jsonBody = {
     fields: {
         first_name: "Jane",
         last_name: "Elliott",
-        email: "youremail@yourDomain.com",
+        email: "example@example.com",
         gender: "FEMALE",
         city: "Barcelona",
         country: "ES",
@@ -85,11 +83,17 @@ const jsonBody = {
     language: "en",
     country: "US",
     policyTypes: ["privacy"],
-    newsletterAccepted: true,
-    source: "US_MY-ACTIVATION_02-20"
+    newsletterAccepted: false,
+    source: "US_MY-ACTIVATION_02-20",
+    lucidId: "L123",
+    customPolicies: [
+        { type: "participation", url: "https://www.redbull.com/participation.pdf" },
+        { type: "disclaimer", url: "https://www.redbull.com/disclaimer.pdf" }
+    ],
+    skipVerification: true,
 };
 console.log('Sending ... ');
-const output = send('POST', jsonBody,`/client/applications/${appId}/form-submissions`, "");
+const output = send('POST', jsonBody,`/client/applications/${formAlias}/form-submissions`, "");
 output.then(data => {
     console.log('Received: ', data);
 }).catch(err => {

@@ -21,3 +21,7 @@ See [separate readme](../js/src/examples/get-form-submission/README.md)
 ## 5. Verify the signature of a Custom Notification
 
 See [separate readme](../js/src/examples/custom-notification-verification/README.md)
+
+## 6. Delete a user
+
+See [separate readme](../js/src/examples/delete-user/README.md)

@@ -1,0 +1,14 @@
+{
+  "name": "js_delete_user",
+  "version": "1.0.0",
+  "description": "Deletes user in JS",
+  "main": "src/delete-user.js",
+  "scripts": {
+    "start": "node src/delete-user.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "crypto-js": "^4.0.0",
+    "express": "^4.16.1"
+  }
+}

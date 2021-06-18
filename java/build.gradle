@@ -12,7 +12,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.bmuschko:gradle-docker-plugin:4.3.0'
+        classpath 'com.bmuschko:gradle-docker-plugin:7.0.1'
     }
 }
 
@@ -22,18 +22,18 @@ repositories {
 
 jar {
     baseName = 'uim-integration'
-    version =  '0.1.0'
+    version = '0.1.0'
 }
 
 dependencies {
     // https://mvnrepository.com/artifact/org.json/json
-    compile group: 'org.json', name: 'json', version: '20190722'
+    implementation group: 'org.json', name: 'json', version: '20190722'
 }
 // https://docs.oracle.com/en/solutions/monitor-applications-on-kubernetes/create-docker-image-java-application.html
 docker {
     javaApplication {
-        baseImage = 'openjdk:11'
+        baseImage = 'openjdk:16'
         maintainer = 'Georgi Potzkov "georgi.potzkov@e-mundo.de"'
-        tag = 'uim-client-java-examples:latest'
+        images = ['uim-client-java-examples:latest']
     }
 }

@@ -23,7 +23,7 @@ REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#cli
 
 Verifies that the Custom Notification comes from UIM.
 
-Documentation: https://platformservices.redbull.com/docs/custom-notifications
+Documentation: https://platformservices.redbull.com/docs/uim-webhook
 
 ### 5. Get a Form Submission with Form API key authentication
 

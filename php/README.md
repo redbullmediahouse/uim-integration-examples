@@ -35,7 +35,7 @@ Verify the signature of a Custom Notification.
 
 File: `client-custom-notification-verification.php`
 
-Documentation: https://platformservices.redbull.com/docs/custom-notifications
+Documentation: https://platformservices.redbull.com/docs/uim-webhook
 
 ## Setup the development environment
 ### 1. Build the container

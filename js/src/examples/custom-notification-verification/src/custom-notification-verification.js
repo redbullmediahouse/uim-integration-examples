@@ -9,7 +9,7 @@ const message1_escaped = '{"userId":"6054ab12c988f0047291ba7f","siloUserId":"605
 // This should be read from the header X-UIM-RSA-Signature-value
 const signature1 = 'A56CdyXRYvv96uv02ddpZoLAtD9WKRjDeLqenL75VvVljh/XoEDmfINig8UeF76JgfQtsWiUQMxKXVmHg6+iBfJbogFAfwsq//XA+yCVIy15up8RnV4I5ZUIBolmZDiHgRXf4zjL3DveMDDq50W2R9SVLYgpzKaL12hJnc52y+PgDJUB4Hus57yQw1aU2MLBcIyC71wZmMSCU/nPy9m6dy72AGiLjkd/4SpId2nhPPWE/SNPzhsocGH2s8O7NIsCd+ECqljjH7Sy8+fKn8Yop25/h2SDrmM5Br5ppGi+EsdWfrzTFK8FoZPJykMOags64MWydWAqmikpDck4EPKnxw==';
 
-// The public key for your application/silo can be found here https://platformservices.redbull.com/docs/authenticating-with-uim-jwt#section-where-do-i-get-the-public-key-from
+// The public key for your application/silo can be found here https://platformservices.redbull.com/docs/rsa-public-keys
 const key =
     '-----BEGIN PUBLIC KEY-----\n' +
 	'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoGtcnk6EuBCOaHZWk1R0\n' +

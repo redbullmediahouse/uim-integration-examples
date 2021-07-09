@@ -3,7 +3,7 @@ Verify the signature of a Custom Notification
 
 File: `custom-notification-verification.js`
 
-Documentation: https://platformservices.redbull.com/docs/custom-notifications
+Documentation: https://platformservices.redbull.com/docs/uim-webhook
 
 ## Setup the development environment
 ### 1. Build the container

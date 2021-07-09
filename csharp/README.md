@@ -19,7 +19,13 @@ Finds a user using the Client API.
 
 REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
 
-## 4. Get a Form Submission with Form API key authentication
+## 4. Verify the signature of a Custom Notification
+
+Verifies that the Custom Notification comes from UIM.
+
+Documentation: https://platformservices.redbull.com/docs/uim-webhook
+
+## 5. Get a Form Submission with Form API key authentication
 
 Get a Form Submission using the Form API key for authentication.
 

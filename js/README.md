@@ -25,3 +25,7 @@ See [separate readme](../js/src/examples/custom-notification-verification/README
 ## 6. Delete a user
 
 See [separate readme](../js/src/examples/delete-user/README.md)
+
+## 7. Get new tokens using the refresh token
+
+See [separate readme](../js/src/examples/oauth-token/README.md)

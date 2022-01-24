@@ -5,19 +5,19 @@
 ### 1. Client Form Submission
 Submits a Form containing consumer data using the Client API.
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-create
+REST documentation: [SubmitForm](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/Form%20Submission/submitForm)
 
 ### 2. Client Create User
 
 Registers a User using the Client API.
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-create-user
+REST documentation: [CreateUser](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/User/createUser)
 
 ### 3. Client Find a User
 
 Finds an existing User using the Client API.
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
+REST documentation: [GetUsers](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/User/getUsers)
 
 ### 4. Verify the signature of a Custom Notification
 
@@ -29,7 +29,7 @@ Documentation: https://platformservices.redbull.com/docs/custom-notifications
 
 Get a Form Submission using the Form API key for authentication.
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-get
+REST documentation: [GetFormSubmissions](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/Form%20Submission/getFormSubmissions)
 
 ## Setup the development environment
 ### 1. Build the container

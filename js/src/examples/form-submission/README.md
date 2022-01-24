@@ -3,7 +3,7 @@ Submits a form containing consumer data using the Client API.
 
 File: `form-submission.js`
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-create
+REST documentation: [SubmitForm](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/Form%20Submission/submitForm)
 
 ## Setup the development environment
 ### 1. Build the container

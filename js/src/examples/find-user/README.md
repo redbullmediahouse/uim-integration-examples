@@ -3,7 +3,7 @@ Finds a user using the Client API.
 
 File: `find-user.js`
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
+REST documentation: [GetUsers](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/User/getUsers)
 
 ## Setup the development environment
 ### 1. Build the container

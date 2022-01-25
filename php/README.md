@@ -7,28 +7,28 @@ Submits a Form containing consumer data using the Client API.
 
 File: `client-form-submission.php`
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-create
+REST documentation: [SubmitForm](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/Form%20Submission/submitForm)
 
 ### 2. Client Create a User
 Submits registration data to create a user using the Client API.
 
 File: `client-create-user.php`
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-create-user
+REST documentation: [CreateUser](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/User/createUser)
 
 ### 3. Client Find a User
 Finds a user using the Client API.
 
 File: `client-find-user.php`
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-user-get-user
+REST documentation: [GetUsers](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/User/getUsers)
 
 ### 4. Client Get Form Submission
 Gets a Form Submission using a form API key for authentication.
 
 File: `client-get-form-submission.php`
 
-REST documentation: https://uim.redbull.com/uim/resources/docs/rest-api.html#client-resources-form-submissions-get
+REST documentation: [GetFormSubmissions](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/Form%20Submission/getFormSubmissions)
 
 ### 5. Custom Notification Verification
 Verify the signature of a Custom Notification.

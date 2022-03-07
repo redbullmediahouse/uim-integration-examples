@@ -18,7 +18,7 @@ public class UimFindUser {
                 environment
         );
         try {
-            String siloUserId = "5e673b25cea34605ab0dbb97";
+            String siloUserId = "621fee3ef8eaaa565ae284f8";
             String findQueryParameters = "siloUserId=" + siloUserId + "&field=email&field=first_name&field=last_name&field=country";
             String user = utils.sendSignedRequest("GET", "/client/applications/" + appId + "/users", findQueryParameters, null);
             System.out.println(user);

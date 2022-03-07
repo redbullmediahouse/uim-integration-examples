@@ -87,7 +87,7 @@ function sendSignedRequest($method, $requestPath, $query, $body)
 
 echo "Sending...";
 
-$query = "siloUserId=5e7dac6397b678058863fd88&field=email&field=first_name&field=last_name&field=country";
+$query = "siloUserId=621fee3ef8eaaa565ae284f8&field=email&field=first_name&field=last_name&field=country";
 $output = sendSignedRequest("GET", "/client/applications/" . $appId . "/users", $query, "");
 
 echo "Received: " . $output . "\n";

@@ -32,6 +32,9 @@ Get a Form Submission using the Form API key for authentication.
 REST documentation: [GetFormSubmissions](https://uim.redbull.com/uim/swagger-ui/index.html?url=https://uim.redbull.com/uim/api-docs/CLIENT_API#/Form%20Submission/getFormSubmissions)
 
 ## Setup the development environment
+### Requirements
+* Java 16
+
 ### 1. Build the container
 `./gradlew clean jar dockerBuildImage`
  

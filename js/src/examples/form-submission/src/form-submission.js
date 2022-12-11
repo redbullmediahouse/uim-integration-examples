@@ -6,15 +6,14 @@ const apiKey = process.env.API_KEY;
 const formAlias = 'integration_example_form';
 const environment = process.env.ENVIRONMENT || 'design';
 
-function createHmacSignature(appId, signature) {
-    const hmacSignature = `HMAC ${appId}:${signature}`;
-    console.log(`AppId: ${appId}`);
+function createHmacSignature(signature) {
+    const hmacSignature = `HMAC FORM:${formAlias}:${signature}`;
     console.log(`HMAC signature: ${hmacSignature}`);
     return hmacSignature;
 }
 
 async function sendQuery(method, body, appId, signature, url, acceptHeader, date) {
-    const hmacSignature = createHmacSignature(appId, signature);
+    const hmacSignature = createHmacSignature(signature);
     return new Promise((resolve, reject) => {
         axios({
             method,
@@ -48,7 +47,7 @@ function uimUrl(requestPath) {
 }
 
 function createSignature(requestMethod, requestPath, query, acceptHeader, body, date) {
-    const params = [appId, requestMethod, requestPath, query, acceptHeader, body, date];
+    const params = [formAlias, requestMethod, requestPath, query, acceptHeader, body, date];
     const rawSignature = params.join('\n');
     const hash = CryptoJS.HmacSHA256(rawSignature, apiKey);
     return CryptoJS.enc.Base64.stringify(hash);
